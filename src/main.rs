@@ -28,7 +28,10 @@ const MB_MULT: f64 = 1024.0 * 1024.0;
 const GB_MULT: f64 = 1024.0 * 1024.0 * 1024.0;
 
 fn system_info() {
-    let sinfo = System::new_all();
+    let mut sinfo = System::new();
+
+    sinfo.refresh_cpu();
+    sinfo.refresh_memory();
 
     println!("Cpu: {:?}", sinfo.global_cpu_info());
     println!("Memory: {:.2}gb", sinfo.total_memory() as f64 / GB_MULT);
