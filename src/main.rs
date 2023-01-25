@@ -203,6 +203,7 @@ async fn main() {
         let mut jobs = vec![];
 
         const FILES_COUNT: usize = 1024;
+        let _ = fdlimit::raise_fd_limit();
 
         let files = Arc::new(
             (0..FILES_COUNT)
