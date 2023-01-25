@@ -58,14 +58,14 @@ fn write_singlethread(file: impl AsRef<Path>, thread_id: Option<usize>) {
 
     if thread_id.is_none() {
         println!(
-            "Write {:.2}GB in {:.2?}s => {:.2}MB/s",
+            "Write {:.2}MB in {:.2?}s => {:.2}MB/s",
             read_mb,
             elapsed,
             read_mb / elapsed
         );
     } else {
         println!(
-            "[THREAD {}]: Write {:.2}GB in {:.2?}s => {:.2}MB/s",
+            "[THREAD {}]: Write {:.2}MB in {:.2?}s => {:.2}MB/s",
             thread_id.unwrap(),
             read_mb,
             elapsed,
@@ -94,7 +94,7 @@ fn write_random_files(files: Arc<Vec<Mutex<File>>>, thread_id: usize) {
     let elapsed = start.elapsed().as_secs_f64();
 
     println!(
-        "[THREAD {}]: Random write {:.2}GB in {:.2?}s => {:.2}MB/s",
+        "[THREAD {}]: Random write {:.2}MB in {:.2?}s => {:.2}MB/s",
         thread_id,
         read_mb,
         elapsed,
@@ -120,14 +120,14 @@ fn read_singlethread(file: impl AsRef<Path>, thread_id: Option<usize>) {
 
     if thread_id.is_none() {
         println!(
-            "Read {:.2}GB in {:.2?}s => {:.2}MB/s",
+            "Read {:.2}MB in {:.2?}s => {:.2}MB/s",
             read_mb,
             elapsed,
             read_mb / elapsed
         );
     } else {
         println!(
-            "[THREAD {}]: Read {:.2}GB in {:.2?}s => {:.2}MB/s",
+            "[THREAD {}]: Read {:.2}MB in {:.2?}s => {:.2}MB/s",
             thread_id.unwrap(),
             read_mb,
             elapsed,
